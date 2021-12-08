@@ -1,10 +1,10 @@
 import { Typography, Box, Grid, TextField, Button } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import { deepPurple, green } from '@mui/material/colors'
-import { Link, useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import React from 'react'
 import { useState, useEffect } from 'react'
-
+import axios from 'axios'
 const usestyle = makeStyles({
     headingColor: {
         backgroundColor: deepPurple[400],
@@ -20,6 +20,55 @@ const EditData = () => {
 
     const classes = usestyle();
     const {id} = useParams();
+    const navigate = useNavigate();
+    const [Employee,setEmployee] = useState({
+        empname : "",
+        empemail : ""
+    });
+
+    // Get Single Record From API
+    useEffect(()=>{
+
+        async function getEmployee()
+        {
+
+            try {
+                const Employee = await axios.get(`http://localhost:3333/employees/${id}`)
+                setEmployee(Employee.data)
+                
+            }
+            catch (error) {
+                console.log(`Something Wrong.. Look At ${error}`)
+            }
+        }
+        getEmployee();
+    },[id])
+
+    function GetDatafromField(e) {
+        setEmployee({
+            ...Employee,
+            [e.target.name]: e.target.value
+        })
+
+
+    }
+
+    async function OnFormSubmit(e) {
+        e.preventDefault();
+
+        try {
+            await axios.put(`http://localhost:3333/employees/${id}`, Employee)
+            navigate("/")
+            
+           
+
+        }
+        catch (error) {
+            console.log(`Something Wrong.. Look At ${error}`)
+        }
+    }
+
+    
     return (
         <>
 
@@ -32,23 +81,21 @@ const EditData = () => {
                     <form>
                         <Grid container spacing={2}>
                             <Grid item xs={12}>
-                                <TextField autoComplete="id" label="id" name="id" id="id" required fullWidth autoFocus value={id} disabled />
+                                <TextField autoComplete="id"  name="id"   fullWidth autoFocus value={id} disabled />
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField autoComplete="Name" label="Name" name="Name" id="Name" required fullWidth autoFocus value="" />
+                                <TextField autoComplete="Name" label="Name" name="empname" id="empname"  fullWidth autoFocus value={Employee.empname} onChange={e => GetDatafromField(e)} />
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField autoComplete="Email" label="Email" name="Email" id="Email" required fullWidth autoFocus value="" />
+                                <TextField autoComplete="Email" label="Email" name="empemail" id="empemail"  fullWidth autoFocus value={Employee.empemail} onChange={e => GetDatafromField(e)}/>
                             </Grid>
                         </Grid>
                         <Box m={3}>
-                            <Button variant="contained" type="button" fullWidth color="primary">Save</Button>
+                            <Button variant="contained" type="button" fullWidth color="primary" onClick={e => OnFormSubmit(e)}>Save</Button>
 
                         </Box>
                         <Box m={3} textAlign="center">
-                            <Link to="/">
-                                <Button variant="contained" color="primary" style={{ textDecoration: "none" }} align="center">Back To Home</Button>
-                            </Link>
+                            <Button variant="contained" onClick={()=> navigate('/')} >Back To Home</Button>
                         </Box>
 
                     </form>

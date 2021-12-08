@@ -36,7 +36,15 @@ const ListData = () => {
 
     useEffect(() => {
         getAllEmployees();
-    })
+    },[])
+
+    const handleDelete = async id => {
+        await axios.delete(`http://localhost:3333/employees/${id}`)
+        let newEmployees = employees.filter((item)=>{
+                return item.id !== id;
+        })
+        setEmployees(newEmployees)
+    }
 
     // To Get Data From API
 
@@ -59,7 +67,7 @@ const ListData = () => {
             <TableContainer component={Paper}>
                 <Table>
                     <TableHead>
-                        <TableRow style={{ backgroundColor: "#616161"}} fullwidth>
+                        <TableRow style={{ backgroundColor: "#616161"}} fullWidth>
                             <TableCell align="center" className={clasess.tableHeadCell} style={{color : "white"}}>No</TableCell>
                             <TableCell align="center" className={clasess.tableHeadCell} style={{color : "white"}}>Name</TableCell>
                             <TableCell align="center" className={clasess.tableHeadCell} style={{color : "white"}}>Email</TableCell>
@@ -72,7 +80,7 @@ const ListData = () => {
                                 return (
                                     <>
                                         <TableRow key={i}>
-                                            <TableCell align="center">{i + 1}</TableCell>
+                                            <TableCell align="center">{employ.id}</TableCell>
                                             <TableCell align="center">{employ.empname}</TableCell>
                                             <TableCell align="center">{employ.empemail}</TableCell>
                                             <TableCell align="center">
@@ -84,7 +92,7 @@ const ListData = () => {
                                                     </IconButton>
                                                 </Tooltip>
                                                 <Tooltip title="Delete">
-                                                    <IconButton>
+                                                    <IconButton onClick={()=> handleDelete(employ.id)}>
 
                                                         <DeleteIcon color="secondary"></DeleteIcon>
 

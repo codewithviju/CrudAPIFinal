@@ -1,31 +1,28 @@
 {
   "employees": [
     {
-      "empname": "vijay",
-      "email": "",
+      "empname": "Viju Koladara",
       "empemail": "vijay@gmail.com",
       "id": 1
     },
     {
-      "empname": "vipul",
-      "email": "",
+      "empname": "vipul Koladara",
       "empemail": "vipul@gmail.com",
       "id": 2
     },
     {
-      "empname": "gopal",
-      "email": "",
+      "empname": "Gopal Koladara",
       "empemail": "gopal@gmail.com",
       "id": 3
     },
     {
       "empname": "haresh koladara",
       "email": "",
-      "empemail": "haresh@gmail.com",
+      "empemail": "hareshbhai@gmail.com",
       "id": 4
     },
     {
-      "empname": "vikram",
+      "empname": "vikram Makwana",
       "email": "",
       "empemail": "vikram@gmail.com",
       "id": 5

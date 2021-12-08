@@ -2,7 +2,7 @@ import { Typography, Box, Grid, Button } from '@mui/material'
 import TextField from '@mui/material/TextField';
 import { deepPurple, green, orange } from '@mui/material/colors'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { makeStyles } from '@mui/styles'
 import ListData from '../Components/ListData';
 import axios from 'axios'
@@ -38,6 +38,7 @@ const Home = () => {
         email: ""
     });
 
+    const [status,setStatus] = useState();
     
 
     // Get Value From TextField And Set into The State
@@ -58,6 +59,7 @@ const Home = () => {
 
         try {
             await axios.post(`http://localhost:3333/employees`, employee)
+            setStatus(true);
            
 
         }
@@ -66,7 +68,10 @@ const Home = () => {
         }
     }
 
-    
+    if(status)
+    {
+        return <Home/>
+    }
 
     return (
         <>
