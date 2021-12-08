@@ -1,8 +1,9 @@
 import { Typography, Box, Grid, TextField, Button } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import { deepPurple, green } from '@mui/material/colors'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import React from 'react'
+import { useState, useEffect } from 'react'
 
 const usestyle = makeStyles({
     headingColor: {
@@ -18,6 +19,7 @@ const usestyle = makeStyles({
 const EditData = () => {
 
     const classes = usestyle();
+    const {id} = useParams();
     return (
         <>
 
@@ -30,7 +32,7 @@ const EditData = () => {
                     <form>
                         <Grid container spacing={2}>
                             <Grid item xs={12}>
-                                <TextField autoComplete="id" label="id" name="id" id="id" required fullWidth autoFocus value="1" disabled />
+                                <TextField autoComplete="id" label="id" name="id" id="id" required fullWidth autoFocus value={id} disabled />
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField autoComplete="Name" label="Name" name="Name" id="Name" required fullWidth autoFocus value="" />

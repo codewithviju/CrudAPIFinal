@@ -24,8 +24,9 @@ const useStyle = makeStyles({
     tableHeadCell: {
         color: "white",
         fontWeight: "bold",
-        fontSize: 16
+        fontSize: 22
     }
+    
 })
 
 const ListData = () => {
@@ -58,11 +59,11 @@ const ListData = () => {
             <TableContainer component={Paper}>
                 <Table>
                     <TableHead>
-                        <TableRow style={{ backgroundColor: "#616161" }} fullwidth>
-                            <TableCell align="center" className={clasess.tableHeadCell}>No</TableCell>
-                            <TableCell align="center" className={clasess.tableHeadCell}>Name</TableCell>
-                            <TableCell align="center" className={clasess.tableHeadCell}>Email</TableCell>
-                            <TableCell align="center" className={clasess.tableHeadCell}>Actions</TableCell>
+                        <TableRow style={{ backgroundColor: "#616161"}} fullwidth>
+                            <TableCell align="center" className={clasess.tableHeadCell} style={{color : "white"}}>No</TableCell>
+                            <TableCell align="center" className={clasess.tableHeadCell} style={{color : "white"}}>Name</TableCell>
+                            <TableCell align="center" className={clasess.tableHeadCell} style={{color : "white"}}>Email</TableCell>
+                            <TableCell align="center" className={clasess.tableHeadCell} style={{color : "white"}}>Actions</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -77,7 +78,7 @@ const ListData = () => {
                                             <TableCell align="center">
                                                 <Tooltip title="Edit">
                                                     <IconButton>
-                                                        <Link to="/edit/1">
+                                                        <Link to={`/edit/${employ.id}`}>
                                                             <EditIcon color="primary"></EditIcon>
                                                         </Link>
                                                     </IconButton>

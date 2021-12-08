@@ -15,7 +15,7 @@ const Footer = () => {
     const clasess = useStyle();
     return (
         <>
-            <Box textAlign="center" className={clasess.headingColor} p={2} mb={2}>
+            <Box textAlign="center" className={clasess.headingColor} p={2} mb={2} mt={2}>
 
                 <Typography variant="h5" align="right">All Right Reserved - RV Technolabs</Typography>
             </Box>
