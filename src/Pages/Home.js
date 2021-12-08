@@ -13,7 +13,7 @@ const useStyle = makeStyles({
         color: "white"
     },
     addStuColor: {
-        backgroundColor: green[400],
+        backgroundColor: "#1565C0",
         color: "white"
     },
     stuListColor: {
@@ -79,7 +79,7 @@ const Home = () => {
             <Grid container px={2}>
                 <Grid item md={6} xs={12} px={4}>
                     <Box textAlign="center" p={2} mb={2} className={clasess.addStuColor}>
-                        <Typography variant="h4">Add Employees</Typography>
+                        <Typography variant="h4" style={{ fontFamily: 'Encode Sans sans-serif'}}>Add Employees</Typography>
                     </Box>
                     <form noValidate>
                         <Grid container spacing={2}>

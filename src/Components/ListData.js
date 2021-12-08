@@ -18,7 +18,7 @@ const useStyle = makeStyles({
         color: "white"
     },
     stuListColor: {
-        backgroundColor: orange[400],
+        backgroundColor: "#1565C0",
         color: "white"
     },
     tableHeadCell: {
@@ -62,12 +62,12 @@ const ListData = () => {
     return (
         <>
             <Box textAlign="center" p={2} className={clasess.stuListColor}>
-                <Typography variant="h4">Employees List</Typography>
+                <Typography variant="h4" style={{ fontFamily: 'Encode Sans sans-serif'}}>Employees List</Typography>
             </Box>
-            <TableContainer component={Paper}>
+            <TableContainer component={Paper} mt={-1}>
                 <Table>
                     <TableHead>
-                        <TableRow style={{ backgroundColor: "#616161"}} fullWidth>
+                        <TableRow style={{ backgroundColor: "#1565C0"}} fullWidth>
                             <TableCell align="center" className={clasess.tableHeadCell} style={{color : "white"}}>No</TableCell>
                             <TableCell align="center" className={clasess.tableHeadCell} style={{color : "white"}}>Name</TableCell>
                             <TableCell align="center" className={clasess.tableHeadCell} style={{color : "white"}}>Email</TableCell>

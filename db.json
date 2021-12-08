@@ -17,15 +17,21 @@
     },
     {
       "empname": "haresh koladara",
-      "email": "",
+
       "empemail": "hareshbhai@gmail.com",
       "id": 4
     },
     {
       "empname": "vikram Makwana",
-      "email": "",
+
       "empemail": "vikram@gmail.com",
       "id": 5
+    },
+    {
+      "empname": "Nilesh",
+
+      "empemail": "nilesh@gmail.com",
+      "id": 6
     }
   ]
 }

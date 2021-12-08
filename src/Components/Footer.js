@@ -4,7 +4,7 @@ import { deepPurple } from '@mui/material/colors'
 import { makeStyles } from '@mui/styles'
 const useStyle = makeStyles({
     headingColor: {
-        backgroundColor: deepPurple[400],
+        backgroundColor: "#1565C0",
         color: "white"
     },
 
@@ -17,6 +17,7 @@ const Footer = () => {
         <>
             <Box textAlign="center" className={clasess.headingColor} p={2} mb={2} mt={2}>
 
+                
                 <Typography variant="h5" align="right">All Right Reserved - RV Technolabs</Typography>
             </Box>
 
